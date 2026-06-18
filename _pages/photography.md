@@ -31,23 +31,25 @@ No agenda here — I mostly just shoot for the vibe.
 </div>
 
 <script>
+/* NOTE: no // line comments below — GitHub Pages minifies the page to one
+   line, which would turn a // comment into a comment of the whole script. */
 (function () {
   var grid = document.getElementById('photo-grid');
   if (!grid) return;
 
-  var GAP = 8;          // must match the CSS gap
-  var TARGET = 300;     // target row height in px
-  var MAX_LAST = 1.5;   // cap the last row's height (× TARGET) so it isn't huge
-  var MAX_PER_ROW = 3;  // hard limit on photos per row
+  var GAP = 8;          /* must match the CSS gap */
+  var TARGET = 300;     /* target row height in px */
+  var MAX_LAST = 1.5;   /* cap the last row height as a multiple of TARGET */
+  var MAX_PER_ROW = 3;  /* hard limit on photos per row */
 
   var items = Array.prototype.slice.call(grid.children);
 
   function aspect(a) {
     var baked = parseFloat(a.getAttribute('data-aspect'));
-    if (baked > 0) return baked;                 // known at build time — no crop, no reflow
+    if (baked > 0) return baked;
     var img = a.querySelector('img');
     if (img.naturalWidth) return img.naturalWidth / img.naturalHeight;
-    return 1.5;  // placeholder until a newly-added image loads
+    return 1.5;
   }
 
   function size(a, w, h) {
@@ -55,8 +57,6 @@ No agenda here — I mostly just shoot for the vibe.
     a.style.height = Math.floor(h) + 'px';
   }
 
-  // Flickr-style justified layout: fill each row to the full width,
-  // letting the row height float around TARGET, capped at 3 photos per row.
   function layout() {
     var W = grid.clientWidth || Math.min(document.documentElement.clientWidth * 0.94, 1200);
     if (!W) return;
@@ -89,7 +89,6 @@ No agenda here — I mostly just shoot for the vibe.
     }
   }
 
-  // Re-layout only if a not-yet-measured image loads, and on resize
   var raf;
   function schedule() { cancelAnimationFrame(raf); raf = requestAnimationFrame(layout); }
   items.forEach(function (a) {
@@ -103,8 +102,6 @@ No agenda here — I mostly just shoot for the vibe.
   var t;
   window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(layout, 150); });
 
-  // Run now and again once the DOM/stylesheets are fully ready (clientWidth
-  // can be 0 if the inline script runs before first layout).
   layout();
   if (document.readyState !== 'complete') {
     document.addEventListener('DOMContentLoaded', layout);
