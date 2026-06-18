@@ -1,0 +1,136 @@
+/* ==========================================================================
+   NARROW SINGLE-COLUMN LAYOUT (override)
+   Site-wide narrow, centered single column. Loaded last so it wins.
+   ========================================================================== */
+
+$narrow-width: 760px;
+
+#main {
+  max-width: $narrow-width;
+
+  @include breakpoint($x-large) {
+    max-width: $narrow-width;
+  }
+}
+
+.masthead__inner-wrap {
+  @include breakpoint($x-large) {
+    max-width: $narrow-width;
+  }
+}
+
+/* Content fills the narrow column (cancel the old sidebar grid offsets) */
+.page {
+  @include breakpoint($large) {
+    float: none;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    clear: both;
+  }
+}
+
+.archive {
+  @include breakpoint($medium) {
+    float: none;
+    width: 100%;
+  }
+
+  @include breakpoint($large) {
+    float: none;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.list__item {
+  @include breakpoint($medium) { padding-right: 0; }
+  @include breakpoint($large) { padding-right: 0; }
+  @include breakpoint($x-large) { padding-right: 0; }
+}
+
+/* About page: photo on the left, intro text wraps to the right */
+.about-photo {
+  float: left;
+  width: 175px;
+  border-radius: 6px;
+  margin: 0.2em 1.5em 0.6em 0;
+
+  @include breakpoint(max-width $small) {
+    float: none;
+    display: block;
+    margin: 0 auto 1em;
+  }
+}
+
+.about-links {
+  clear: both;
+  padding-top: 0.4em;
+  font-size: 0.95em;
+  color: var(--global-text-color-light);
+
+  a {
+    text-decoration: none;
+    margin-right: 0.6em;
+    white-space: nowrap;
+  }
+}
+
+/* Publication titles: no underline (kept only on hover) */
+.archive .archive__item-title a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Justify body text across the column (about intro + publication excerpts) */
+.page__content p,
+.archive__item-excerpt {
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Photography: justified gallery (Flickr's algorithm) — rows fill the full
+   width with variable row heights, so the layout is tight (no gaps) and
+   organic. JS computes each item's width/height; CSS just wraps the flow.
+   The grid breaks out of the narrow text column so photos are larger. */
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  gap: 8px;
+  margin-top: 1.2em;
+
+  /* full-bleed: widen beyond the 760px column, centered to the viewport */
+  width: min(94vw, 1200px);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.photo-grid__item {
+  display: block;
+  flex: 0 0 auto;
+  width: 240px;   // overridden per-image by JS
+  height: 240px;  // overridden per-image by JS
+  border-radius: 4px;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &:hover img { opacity: 0.85; }
+}

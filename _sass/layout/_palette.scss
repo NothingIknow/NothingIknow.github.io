@@ -1,0 +1,35 @@
+/* ==========================================================================
+   COLOR PALETTE OVERRIDE — "Academic Teal"
+   Accent #0d9488 used for links, venue tags, hovers. Loaded last so it wins.
+   Edit the hex values here to retune the whole site's colors.
+   ========================================================================== */
+
+/* ---- Light mode ---- */
+:root {
+  --global-base-color                 : #0d9488;  /* teal accent */
+  --global-bg-color                   : #fafafa;  /* near-white page bg */
+  --global-text-color                 : #1a2421;  /* near-black body */
+  --global-text-color-light           : #6b7280;  /* muted meta text */
+  --global-border-color               : #e5e7eb;  /* light dividers */
+  --global-link-color                 : #0d9488;  /* teal links */
+  --global-link-color-hover           : #0a6e63;  /* darker teal on hover */
+  --global-link-color-visited         : #0d9488;
+  --global-masthead-link-color        : #1a2421;
+  --global-masthead-link-color-hover  : #0d9488;
+  --global-footer-bg-color            : #1a2421;  /* dark footer bar */
+}
+
+/* ---- Dark mode ---- */
+html[data-theme="dark"] {
+  --global-base-color                 : #2dd4bf;  /* lighter teal for dark bg */
+  --global-bg-color                   : #1a1f1e;
+  --global-text-color                 : #e5e7eb;
+  --global-text-color-light           : #9ca3af;
+  --global-border-color               : #374151;
+  --global-link-color                 : #2dd4bf;
+  --global-link-color-hover           : #5eead4;
+  --global-link-color-visited         : #2dd4bf;
+  --global-masthead-link-color        : #e5e7eb;
+  --global-masthead-link-color-hover  : #2dd4bf;
+  --global-footer-bg-color            : #111615;
+}

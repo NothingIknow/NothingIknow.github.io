@@ -21,3 +21,9 @@ package-lock.json
 
 # Ignore files created by MacOS
 .DS_Store
+
+# Photos removed as near-duplicates (kept locally, not deployed)
+images/photography_duplicates/
+
+# HEIC source files (PNG/JPG versions are committed instead)
+images/*.heic

@@ -143,9 +143,7 @@
 .author__avatar {
   display: table-cell;
   vertical-align: top;
-  width: 136px;
-  // set width only, for non-square avatars
-  // height: 36px; 
+  width: 80px; // avatar column width
 
   @include breakpoint($large) {
     display: block;
@@ -154,8 +152,8 @@
   }
 
   img {
-    max-width: 1275px;
-    border-radius: 0px; /* 圆角方形；改为 0 则直角方形，50% 则圆形 */
+    max-width: 200px;
+    border-radius: 0;
 
     @include breakpoint($large) {
       padding: 5px;
