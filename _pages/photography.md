@@ -58,7 +58,7 @@ No agenda here — I mostly just shoot for the vibe.
   // Flickr-style justified layout: fill each row to the full width,
   // letting the row height float around TARGET, capped at 3 photos per row.
   function layout() {
-    var W = grid.clientWidth;
+    var W = grid.clientWidth || Math.min(document.documentElement.clientWidth * 0.94, 1200);
     if (!W) return;
     var row = [], sum = 0;
 
@@ -102,6 +102,13 @@ No agenda here — I mostly just shoot for the vibe.
   });
   var t;
   window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(layout, 150); });
+
+  // Run now and again once the DOM/stylesheets are fully ready (clientWidth
+  // can be 0 if the inline script runs before first layout).
   layout();
+  if (document.readyState !== 'complete') {
+    document.addEventListener('DOMContentLoaded', layout);
+    window.addEventListener('load', layout);
+  }
 })();
 </script>
