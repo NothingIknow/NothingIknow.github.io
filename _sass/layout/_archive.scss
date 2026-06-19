@@ -40,7 +40,7 @@
 }
 
 .archive__item-title {
-  margin-bottom: 0.15em;
+  margin-bottom: 0.05em;
   font-family: $sans-serif-narrow;
   font-size: 1em;
 
@@ -63,6 +63,20 @@
     margin-top: 1em;
     border-bottom: none;
   }
+
+  /* Override `.page__content p { font-size: 1em; margin: 0 0 1.3em }` (which
+     has higher specificity) so the publication meta lines take their intended
+     sizes AND don't inherit the big 1.3em paragraph spacing. */
+  .archive__item-authors,
+  .archive__item-venue {
+    font-size: 0.875em;
+    margin: 0 0 0.15em;
+  }
+
+  .archive__item-excerpt {
+    font-size: 0.75em;
+    margin: 0 0 0.2em;
+  }
 }
 
 .archive__item-authors {
@@ -80,7 +94,7 @@
 
 .archive__item-excerpt {
   margin-top: 0;
-  font-size: 0.875em;
+  font-size: 0.75em;
   line-height: 1.45;
 
   & + p {

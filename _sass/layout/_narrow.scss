@@ -54,6 +54,12 @@ $narrow-width: 760px;
   @include breakpoint($x-large) { padding-right: 0; }
 }
 
+/* About intro prose — slightly smaller than the 1em body. Setting it on the
+   wrapper lets the inner <p> (which is 1em via .page__content p) inherit it. */
+.about-intro {
+  font-size: 0.875em;
+}
+
 /* About page: photo on the left, intro text wraps to the right */
 .about-photo {
   float: left;
