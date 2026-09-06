@@ -10,7 +10,7 @@ redirect_from:
 
 <div class="about-intro" markdown="1">
 
-My name is Shuwei Li (李书伟). I received my Ph.D. from the [National University of Singapore](https://www.nus.edu.sg/), where I was advised by Prof. [Robby T. Tan](https://tanrobby.github.io/). Prior to that, I received my bachelor’s degree from [Southeast University](https://www.seu.edu.cn/english/) and my master’s degree from [Boston University](https://www.bu.edu/).
+My name is Shuwei Li (李书伟). I will soon be joining [Mike Shou](https://sites.google.com/view/showlab)'s Show Lab at the National University of Singapore as a research fellow. I received my Ph.D. from [NUS](https://www.nus.edu.sg/), where I was advised by Prof. [Robby T. Tan](https://tanrobby.github.io/). Prior to that, I received my bachelor’s degree from [Southeast University](https://www.seu.edu.cn/english/) and my master’s degree from [Boston University](https://www.bu.edu/).
 
 My doctoral research focused on color constancy via deep learning. I find color fascinating because it lies at the boundary between the world as it is and the world as we perceive it.
 
